@@ -1,0 +1,22 @@
+<html>
+    <head>
+	<script src="dojo/dojo/dojo.js.uncompressed.js" data-dojo-config="async: true,isDebug:true,packages:[{name:'graph',location:'../../graph/'}]"></script>
+        <script type="text/javascript">
+		require(['dojox/gfx','dojox/gfx/utils','dojo/text!graph/classes.js','graph/dot',"dojo/_base/fx","dojo/dom"], function(gfx, utils,diaAsJson,dot,fx,dom){
+			// Create the surface
+var surfaceNode = dom.byId("logoHolder");
+surfaceNode.style.opacity=0;
+     			 var surface = dojox.gfx.createSurface(surfaceNode, 500, 500);
+      
+     			 // Write JSON to group
+     			 group = surface.createGroup();
+    			 dot.fromJson(group,diaAsJson);
+fx.fadeIn({ node: surfaceNode }).play();
+					});
+        </script>
+	
+    </head>
+    <body>
+	<div id="logoHolder"></div>
+    </body>
+</html>
