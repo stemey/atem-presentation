@@ -15,16 +15,16 @@ digraph G {
         ]
 
         Person [
-                label = "{Person|+ name : string\l|+ age : int\l}"
+                label = "{Person|+ name : string\l|+ age : int\l}",id=Person
         ]
         Address [
-                label = "{Address|+ street : string\l|+ zip : string\l}"
+                label = "{Address|+ street : string\l|+ zip : string\l}",id=Address
             ]
         Pet [
-                label = "{Pet|+ name : string\l}"
+                label = "{Pet|+ name : string\l}",id=Pet
             ]
         Team [
-                label = "{Team|+ name : string\l}"
+                label = "{Team	|+ name : string\l}",id=Team
             ]
 
 	    
