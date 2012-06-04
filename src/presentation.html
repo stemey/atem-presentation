@@ -1,23 +1,29 @@
 <html>
-    <head>
-	<script src="../dojo/dojo/dojo.js" 
-			data-dojo-config="async: true,isDebug:true,packages:[{name:'graph',location:'../../app/graph'}]"></script>
-        <script type="text/javascript">
-		require(['dojox/gfx','dojox/gfx/utils','dojo/text!graph/classes.js','graph/dot',"dojo/_base/fx","dojo/dom"], function(gfx, utils,diaAsJson,dot,fx,dom){
-			// Create the surface
-var surfaceNode = dom.byId("logoHolder");
-surfaceNode.style.opacity=0;
-     			 var surface = dojox.gfx.createSurface(surfaceNode, 500, 500);
-      
-     			 // Write JSON to group
-     			 group = surface.createGroup();
-    			 dot.fromJson(group,diaAsJson);
-fx.fadeIn({ node: surfaceNode }).play();
-					});
-        </script>
-	
-    </head>
-    <body>
-	<div id="logoHolder"></div>
-    </body>
+<head>
+<link href="simyo.css" type="text/css" rel="stylesheet" />
+<script src="../dojo/dojo/dojo.js"
+	data-dojo-config="async: true,isDebug:true,packages:[{name:'graph',location:'../../app/graph'}]"></script>
+<script type="text/javascript">
+	require([ "graph/PageViewer", "dojo/dom",
+			"dojo/text!graph/pages/pages.json" ], function(PageViewer, dom,
+			pagesAsString) {
+		// Create the surface
+		var pages = dojo.fromJson(pagesAsString);
+		var page1 = dom.byId("page1");
+		var page2 = dom.byId("page2");
+		pageViewer = new graph.PageViewer({
+			currentPageHolder : page1,
+			nextPageHolder : page2
+		});
+		pageViewer.start();
+	});
+</script>
+
+</head>
+<body>
+	<div style="position:absolute">
+		<div id="page1" style="position:absolute"></div>
+		<div id="page2" style="position:absolute"></div>
+	</div>
+</body>
 </html>

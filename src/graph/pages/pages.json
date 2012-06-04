@@ -1,0 +1,13 @@
+{
+	index: [ {
+		type : "graph.HtmlPage",
+		snippet : "welcome.html"
+	}, {
+		type : "graph.HtmlPage",
+		snippet : "agenda.html"
+	}, {
+		type : "graph.GraphPage",
+		graph : "classes.json",
+		matrix : 2.3
+	} ]
+}
