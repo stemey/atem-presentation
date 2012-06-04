@@ -15,7 +15,7 @@ digraph G {
         ]
 
         Animal [
-                label = "{Animal|<f>+ name : string\l|+ age : int\l|+ die() : void\l}"
+                label = "{Animal|<animalport>+ name : string\l|+ age : int\l|+ die() : void\l}"
         ]
 
         subgraph clusterAnimalImpl {
@@ -35,7 +35,7 @@ digraph G {
                 arrowhead = "empty"
         ]
 
-Animal:f -> Dog:b;
+Animal:animalport -> Dog:b;
 
         Dog -> Animal
         Cat -> Animal

@@ -1,0 +1,35 @@
+digraph G {
+	rankdir=BT;
+        fontname = "Bitstream Vera Sans";
+        fontsize = 8;
+
+        node [
+                fontname = "Bitstream Vera Sans"
+                fontsize = 8
+                shape = "record"
+        ]
+
+        edge [
+                fontname = "Bitstream Vera Sans"
+                fontsize = 8
+        ]
+
+        Person [
+                label = "{Person|+ name : string\l|+ age : int\l}"
+        ]
+        Address [
+                label = "{Address|+ street : string\l|+ zip : string\l}"
+            ]
+        Pet [
+                label = "{Pet|+ name : string\l}"
+            ]
+        Team [
+                label = "{Team|+ name : string\l}"
+            ]
+
+	    
+
+		Person -> Address [taillabel="0..n"];
+		Person -> Pet [taillabel="0..1"];
+		Person -> Team [taillabel="0..n"];
+}

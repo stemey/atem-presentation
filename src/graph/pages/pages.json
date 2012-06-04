@@ -9,5 +9,9 @@
 		type : "graph.GraphPage",
 		graph : "classes.json",
 		matrix : 2.3
+	}, {
+		type : "graph.GraphPage",
+		graph : "clone.json",
+		matrix : 2.3
 	} ]
 }
