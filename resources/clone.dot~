@@ -14,7 +14,7 @@ digraph G {
                 label = "{Person\l|+ id : string\l|+ name : string\l|+ age : int\l}",id=Person
         ]
         Insurance [
-                label = "{Insurance\l|+ name : string\l|+ id : string\l|+ price : string\l}",id=Insurance
+                label = "{Insurance\l|+ name : string\l|+ id : string\l}",id=Insurance
             ]
         Pet [
                 label = "{Pet\l|+ name : string\l}",id=Pet
