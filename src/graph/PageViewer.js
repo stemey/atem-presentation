@@ -20,7 +20,6 @@ function(declare, pagesAsJson, fx, coreFx, dom, lang, connect, hash) {
 			lang.mixin(this, kwArgs);
 		},
 		start : function(holder) {
-			this.pages = dojo.fromJson(pagesAsJson);
 			this.displayHashedPage();
 			page.display(this.nextPageHolder, lang.hitch(this, "onDisplay"));
 			dojo.connect(this.currentPageHolder, "click", lang.hitch(this,
