@@ -13,8 +13,8 @@
 		graph : "api.json"
 	}, {
 		type : "graph.GraphPage",
-		graph : "compare.json",
-		matrix : 1.3,
+		graph : "comparison.json",
+		matrix : 2.3,
 		instructions : [ {
 			text : "inkludiere primitive Attribute",
 			ref : "Person",
