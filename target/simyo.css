@@ -44,12 +44,20 @@ li{
 rect:hover {
 	fill:red;stroke:red
 }
+.instruction text{
+	fill:red;
+	stroke:red;
+	
+}
+.instruction rect{
+	fill:white;
+}
 line:hover {
 	stroke:red;
 }
 
 text:hover {
-  stroke:red;fill:red;font-weight:900;
+  stroke:red;fill:red;
 }
 
 

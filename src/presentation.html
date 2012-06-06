@@ -4,16 +4,17 @@
 <script src="../dojo/dojo/dojo.js"
 	data-dojo-config="async: true,isDebug:true,packages:[{name:'graph',location:'../../app/graph'}]"></script>
 <script type="text/javascript">
-	require([ "graph/PageViewer", "dojo/dom",
-			"dojo/text!graph/pages/pages.json" ], function(PageViewer, dom,
+	require([ "graph/PageViewer","dojo/dom",
+			"dojo/text!graph/pages/pages.json" ], function(PageViewer,  dom,
 			pagesAsString) {
+		
 		// Create the surface
-		var pages = dojo.fromJson(pagesAsString);
 		var page1 = dom.byId("page1");
 		var page2 = dom.byId("page2");
-		pageViewer = new graph.PageViewer({
-			currentPageHolder : page1,
-			nextPageHolder : page2
+		pageViewer = new PageViewer({
+			currentHolder : page1,
+			nextHolder : page2,
+			navStateId : "page"
 		});
 		pageViewer.start();
 	});
@@ -21,9 +22,9 @@
 
 </head>
 <body>
-	<div style="position:absolute">
-		<div id="page1" style="position:absolute"></div>
-		<div id="page2" style="position:absolute"></div>
+	<div style="position: absolute">
+		<div id="page1" style="position: absolute"></div>
+		<div id="page2" style="position: absolute"></div>
 	</div>
 </body>
 </html>

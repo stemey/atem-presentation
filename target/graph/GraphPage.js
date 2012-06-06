@@ -6,20 +6,29 @@ define([ "dojo/_base/declare",//
 'graph/dot',//
 "dojo/_base/fx",//
 "dojo/dom-construct",//
+"./InstructionsChain",//
+"./Instruction",//
+"dojo/dom-construct",//
 'dojox/gfx/utils' ], //
 function(declare, lang, array, query) {
 
 	declare("graph.GraphPage", null, {
 		graph : null,
 		matrix : null,
-		x:10,
-		y:400,
-		height:100,
-		instructions : null,
+		subChain : null,
 		constructor : function(/* Object */kwArgs) {
 			lang.mixin(this, kwArgs);
 		},
+		next : function() {
+			if (this.subChainInstance != null && this.subChainInstance.next()) {
+				return true;
+			} else {
+				return false;
+			}
+		},
 		display : function(holder, cb) {
+			this.holder=holder;
+			holder.style.opacity = 0;
 			var graphAsJson = dojo.cache("graph.pages", this.graph);
 			var surface = dojox.gfx.createSurface(holder, 1000, 1000);
 			// Write JSON to group
@@ -29,59 +38,20 @@ function(declare, lang, array, query) {
 				var transform = new dojox.gfx.Matrix2D(this.matrix);
 				group.applyTransform(transform);
 			}
-			if (this.instructions != null) {
-				var instruction = this.instructions[0];
-				var dialog = surface.createGroup();
-				var transform = dojox.gfx.matrix.translate(this.x,this.y);
-				dialog.applyTransform(transform);
-				var rect = dialog.createRect({
-					width : 1000-this.x,
-					height : this.height
-				}).setStroke("red");
-				var text = dialog.createText({
-					x : 0,
-					y : this.height,
-					text : instruction.text
-				});
-				text.setStroke({
-					color : "red",
-					fill:"solid"
-				});
-				text.setFont({size:30});
-
-				if (instruction.ref != null) {
-					var id = window.shapeNames[instruction.ref];
-					var node = dojox.gfx.shape.byId(id);
-					if (node != null) {
-						var bb = node.children[0].getTransformedBoundingBox();
-						var line = dialog.createLine({
-							x1 : 0,
-							y1 : 0,
-							x2 : bb[0].x - this.x,
-							y2 : bb[0].y - this.y
-						});
-						line.setStroke({
-							color : "red",
-							style : "solid",
-							width : 3
-						});
-						if (instruction.refAttributes != null) {
-							var index=0;
-							var arrayIndex=0;
-							array.forEach(node.children, function(e) {
-								if (e.shape.type=="text") {
-									if (index==instruction.refAttributes[arrayIndex]) {
-										e.setStroke({color:"red"});
-										arrayIndex++;
-									}
-									index++;
-								}
-							})
-						}
-					}
-				}
+			if (this.subChain != null) {
+				var subGroup1= surface.createGroup();
+				var subGroup2= surface.createGroup();
+				this.subChainInstance = new lang.getObject(this.subChain.type)(this.subChain);
+				this.subChainInstance.nextHolder=subGroup1;
+				this.subChainInstance.currentHolder=subGroup2;
+				this.subChainInstance.start();
 			}
+
 			cb();
+		},
+		dispose : function() {
+			this.holder.innerHTML="";
+			this.holder=null;
 		}
 	});
 });

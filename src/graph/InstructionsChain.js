@@ -7,21 +7,22 @@ define([ //
 'dojo/dom',//
 "dojo/_base/lang",//
 "dojo/_base/connect",//
-"dojo/hash",//
-'./GraphPage', //
-'./HtmlPage' ], //
+"dojo/hash"
+ ], //
 function(declare, DisplayChain, pagesAsJson, fx, coreFx, dom, lang, connect, hash) {
 
-	declare("graph.PageViewer", DisplayChain, {
+	declare("graph.InstructionsChain", DisplayChain, {
 		constructor : function(/* Object */kwArgs) {
 			lang.mixin(this, kwArgs);
+			this.navStateId="in";
 		},
 		start : function(holder) {
-			this.views = dojo.fromJson(pagesAsJson);
 			this.displayHashedView();
-			dojo.connect(this.currentHolder,"click",lang.hitch(this,"next"));
-			dojo.connect(this.nextHolder,"click",lang.hitch(this,"next"));
-		}
+		},
+		onShowView : function() {
+			this.swapViews();
+		},
+
 	});
 	return graph.PageViewer;
 });

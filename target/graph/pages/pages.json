@@ -1,45 +1,70 @@
-{
-	index: [ {
-		type : "graph.HtmlPage",
-		snippet : "welcome.html"
-	}, {
-		type : "graph.HtmlPage",
-		snippet : "agenda.html"
-	}, {
-		type : "graph.HtmlPage",
-		snippet : "motivation.html"
-	}, {
-		type : "graph.GraphPage",
-		graph : "api.json"
-	}, {
-		type : "graph.GraphPage",
-		graph : "comparison.json",
-		matrix : 2.3,
-		instructions : [ {
+[ {
+	type : "graph.HtmlPage",
+	snippet : "welcome.html"
+}, {
+	type : "graph.HtmlPage",
+	snippet : "agenda.html"
+}, {
+	type : "graph.HtmlPage",
+	snippet : "motivation.html"
+}, {
+	type : "graph.GraphPage",
+	graph : "api.json"
+}, {
+	type : "graph.GraphPage",
+	graph : "compare.json",
+	matrix : 1.5,
+	subChain : {
+		type : "graph.InstructionsChain",
+		views : [ {
+			type : "graph.Instruction",
 			text : "inkludiere primitive Attribute",
 			ref : "Person",
-			refAttributes : [ 2,3 ]
-		} ,{
+			x : 10,
+			y : 380,
+			height : 100,
+			refAttributes : [ 2, 3 ]
+		}, {
+			type : "graph.Instruction",
 			text : "Inkludiere und kaskadiere zu Id und Preis",
-			ref : "Person_Insurance"
-		},{
+			ref : "Person_Insurance",
+			x : 10,
+			y : 400,
+			height : 100
+		}, {
+			type : "graph.Instruction",
 			text : "inkludiere multiple Assoziation",
-			ref : "Person_Pet"
-		} ,{
+			ref : "Person_Pet",
+			x : 10,
+			y : 400,
+			height : 100
+		}, {
+			type : "graph.Instruction",
 			text : "kaskadiere",
 			ref : "Pet",
-			refAttributes : [ 1 ]
-		} ,{
+			refAttributes : [ 1 ],
+			x : 10,
+			y : 400,
+			height : 100
+		}, {
+			type : "graph.Instruction",
 			text : "inkludiere Attribute in Subtyp",
 			ref : "Dog",
-			refAttributes : [ 1 ]
-		},{
+			refAttributes : [ 1 ],
+			x : 10,
+			y : 400,
+			height : 100
+		}, {
+			type : "graph.Instruction",
 			text : "Identität der Elemente",
-			ref : "Person_Pet"
+			ref : "Person_Pet",
+			x : 10,
+			y : 400,
+			height : 100
 		} ]
-	}, {
-		type : "graph.GraphPage",
-		graph : "clone.json",
-		matrix : 2.3
-	} ]
-}
+	}
+}, {
+	type : "graph.GraphPage",
+	graph : "clone.json",
+	matrix : 2.3
+} ]
