@@ -6,8 +6,14 @@
 		type : "graph.HtmlPage",
 		snippet : "agenda.html"
 	}, {
+		type : "graph.HtmlPage",
+		snippet : "motivation.html"
+	}, {
+		type : "graph.HtmlPage",
+		snippet : "introduction.html"
+	}, {
 		type : "graph.GraphPage",
-		graph : "clone.json",
+		graph : "comparison.json",
 		matrix : 2.3,
 		instructions : [ {
 			text : "inkludiere primitive Attribute",

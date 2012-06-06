@@ -1,0 +1,86 @@
+@font-face {
+font-family: S2;
+src: url('chalet-parisnineteensixty.ttf');
+font-style: normal;
+font-weight: normal;
+}
+
+body {
+ position:relative;font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+}
+
+.frame {
+height: 700px;
+width: 1100px;
+position: relative;
+padding: 50px;
+margin: 0 auto;
+}
+
+h1 {
+font-size:50pt;margin:50pt;color:white;font-weight:800
+}
+
+li{
+ margin:20pt;
+}
+
+.lightbg {
+	background-image: -moz-radial-gradient(center 45deg, circle, white 0%, rgb(209,209,209) 100%);
+	background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 750, from(rgb(245,245,245)), to(rgb(209,209,209)));
+}
+
+.grey {
+   background-color:rgb(117,117,117)
+}
+
+.lightgrey {
+   background-color:rgb(209,209,209)
+}
+.darkgrey {
+   background-color:rgb38,38,38)
+}
+
+rect:hover {
+	fill:red;stroke:red
+}
+line:hover {
+	stroke:red;
+}
+
+text:hover {
+  stroke:red;fill:red;font-weight:900;
+}
+
+
+div.agendaPoints {
+  color:white;position:absolute;bottom:50px;margin:5px;font-family:S2
+}
+
+.agendaPoints h1 {
+  color:rgb(209,209,209);font-size:43pt;margin-bottom: 10px;margin-top: 10px;font-family:S2
+}
+
+h1.currentAgendaPoint {
+   color:white
+}
+
+
+div.index  {
+color:white;margin:5px;padding:5px;font-family:S2; position: absolute; bottom: 50px;
+}
+
+.index p{
+font-size:43pt;margin-bottom: 10px;
+}
+
+.chalet {
+   font-family:S2
+}
+
+.bullets {
+font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;font-size:30pt;margin:40pt;font-weight:600;color:white;position:absolute;bottom:50px;
+
+}
+
+
