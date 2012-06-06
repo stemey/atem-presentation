@@ -9,8 +9,8 @@
 		type : "graph.HtmlPage",
 		snippet : "motivation.html"
 	}, {
-		type : "graph.HtmlPage",
-		snippet : "introduction.html"
+		type : "graph.GraphPage",
+		graph : "api.json"
 	}, {
 		type : "graph.GraphPage",
 		graph : "comparison.json",
