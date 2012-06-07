@@ -55,10 +55,8 @@ function(declare, pagesAsJson, fx, coreFx, dom, lang, connect, hash, ioQuery) {
 				return true;
 			}
 			if (this.views.length > this.viewIndex + 1) {
-				this.viewIndex++;
-				this.showView();
 				var navState = ioQuery.queryToObject(hash());
-				navState[this.navStateId] = this.viewIndex;
+				navState[this.navStateId] = this.viewIndex+1;
 				hash(ioQuery.objectToQuery(navState));
 				return true;
 			} else {

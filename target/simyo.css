@@ -7,6 +7,7 @@ font-weight: normal;
 
 body {
  position:relative;font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+	background-color:blue;margin:0
 }
 
 .frame {
@@ -52,6 +53,10 @@ rect:hover {
 .instruction rect{
 	fill:white;
 }
+.highlightAttribute{
+	stroke:red;
+	fill:red;	
+}
 line:hover {
 	stroke:red;
 }
@@ -90,5 +95,13 @@ font-size:43pt;margin-bottom: 10px;
 font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;font-size:30pt;margin:40pt;font-weight:600;color:white;position:absolute;bottom:50px;
 
 }
+
+#main {
+	width:1200;
+	height:800;
+	background-color:#757575
+}
+
+
 
 

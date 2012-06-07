@@ -1,4 +1,6 @@
 {
-	width:1000,
-	height:800
+	width:1100,
+	height:700,
+	margin:50,
+	scale:1 // 11 pts -> 1100 px
 }
