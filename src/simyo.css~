@@ -52,7 +52,7 @@ rect:hover {
 .instruction rect{
 	fill:white;
 }
-.highlightAttribute{
+.highlightAttriute{
 	stroke:red;
 	fill:red;	
 }

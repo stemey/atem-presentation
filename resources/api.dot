@@ -29,9 +29,10 @@ nodesep=1.3;
 	    
 
 		EntityTypeRepository -> EntityType [label="getEntityType(String code)"];
-		EntityType -> Type [weight=5];
+		EntityType -> Type [weight=0];
+		EntityType -> EntityType [constraint=false,label="superType/\nsubTypes"];
 		EntityType -> Attribute [label="0..n",decorate];
-		Attribute -> Type [taillabel="getTargetType()",decorate,labeldistance=2,labelangle=1.2];
+		Attribute -> Type [label="targetType",decorate,labeldistance=2,labelangle=1.2];
 		Attribute -> CollectionAttribute [dir=back];
 		Attribute -> MapAttribute [dir=back];
 		MapAttribute -> Type [label="getKeyType()"]

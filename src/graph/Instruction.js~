@@ -26,7 +26,7 @@ function(lang, declare, array, config) {
 			this.holder.clear();
 			dojo.forEach(this.attributes,function(e) {
 				this.dehighlightAttribute(e);
-			},this);
+			});
 			this.attributes=null; 
 		},
 		highlightAttribute : function(attribute) {
