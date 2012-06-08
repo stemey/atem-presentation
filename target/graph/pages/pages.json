@@ -8,13 +8,8 @@
 	type : "graph.HtmlPage",
 	snippet : "motivation.html"
 }, {
-	type : "graph.GraphPage",
-	graph : "api.json",
-	matrix : 1.1,
-}, {
-	type : "graph.GraphPage",
-	graph : "comparison.json",
-	matrix : 1.27
+	type : "graph.HtmlPage",
+	snippet : "requirements.html"
 }, {
 	type : "graph.GraphPage",
 	graph : "compare.json",
@@ -23,46 +18,47 @@
 		type : "graph.InstructionsChain",
 		views : [ {
 			type : "graph.Instruction",
-			text : "inkludiere primitive Attribute",
+			text : "include primitive attributes",
 			ref : "Person",
 			x : 50,
-			y : 500,
+			y : 300,
 			height : 100,
-			width : 300,
-			refAttributes : [ 2, 3 ]
+			width : 700,
+			refAttributes : [ 2,3 ]
 		}, {
 			type : "graph.Instruction",
-			text : "Inkludiere und kaskadiere zu Id und Preis",
-			ref : "Person_Insurance",
+			text : "include and cascade association",
+			ref : "Insurance",
+			refAttributes:[2,3],
+			x : 400,
+			y : 250,
+			width : 600,
+			height : 100
+		}, {
+			type : "graph.Instruction",
+			text : "include collection attribute",
+			ref : "Pet",
 			x : 50,
-			y : 500,
-			width : 800,
+			y : 250,
+			width : 450,
 			height : 100
 		}, {
 			type : "graph.Instruction",
-			text : "inkludiere multiple Assoziation",
-			ref : "Person_Pet",
-			x : 10,
-			y : 500,
-			width : 300,
-			height : 100
-		}, {
-			type : "graph.Instruction",
-			text : "kaskadiere",
+			text : "cascade to key 'name'",
 			ref : "Pet",
 			refAttributes : [ 1 ],
-			x : 10,
-			y : 500,
-			width : 300,
+			x : 50,
+			y : 250,
+			width : 450,
 			height : 100
 		}, {
 			type : "graph.Instruction",
-			text : "inkludiere Attribute in Subtyp",
+			text : "include attribtue in subtype",
 			ref : "Dog",
 			refAttributes : [ 1 ],
-			x : 10,
-			y : 200,
-			width : 600,
+			x : 50,
+			y : 250,
+			width : 450,
 			height : 100
 		}, {
 			type : "graph.Instruction",
@@ -75,6 +71,181 @@
 		} ]
 	}
 }, {
+	type : "graph.HtmlPage",
+	snippet : "better-api.html"
+}, {
+	type : "graph.HtmlPage",
+	snippet : "better-api-2.html"
+} , {
+	type : "graph.GraphPage",
+	graph : "api.json",
+	matrix : 1.1,
+subChain : {
+		type : "graph.InstructionsChain",
+		views : [ {
+			type : "graph.Instruction",
+			text : "EntityTypeRepository gives access to types",
+			ref : "EntityTypeRepository",
+			x : 200,
+			y : 200,
+			height : 100,
+			width : 700
+		}, {
+			type : "graph.Instruction",
+			text : "EntityType is anloguous to java.lang.Class",
+			ref : "EntityType",
+			x : 200,
+			y : 200,
+			width : 700,
+			height : 100
+		}, {
+			type : "graph.Instruction",
+			text : "Known subtypes are accessible",
+			ref : "EntityType",
+			x : 200,
+			y : 200,
+			width : 700,
+			height : 100
+		}, {
+			type : "graph.Instruction",
+			text : "Attribute has a targetType and a returnClass",
+			ref : "Attribute",
+			x : 200,
+			y : 500,
+			width : 700,
+			height : 100
+		}, {
+			type : "graph.Instruction",
+			text : "Special APIs for map and collection",
+			ref : "MapAttribute",
+			x : 200,
+			y : 500,
+			width : 700,
+			height : 100
+		} ]
+	}
+}, {
+	type : "graph.GraphPage",
+	graph : "comparison.json",
+	matrix : 1.27,
+subChain : {
+		type : "graph.InstructionsChain",
+		views : [ {
+			type : "graph.Instruction",
+			text : "Calculating difference between two entities ",
+			ref : "Difference",
+			x : 100,
+			y : 200,
+			height : 100,
+			width : 900
+		}, {
+			type : "graph.Instruction",
+			text : "Difference includes path: 'person.pets.0.walksPerDay' ",
+			ref : "Difference",
+			x : 100,
+			y : 200,
+			height : 100,
+			width : 900
+		}, {
+			type : "graph.Instruction",
+			text : "AttributeChanges include old and new value",
+			ref : "AttributeChange",
+			x : 100,
+			y : 200,
+			width : 900,
+			height : 100
+		},  {
+			type : "graph.Instruction",
+			text : "The removal of an element from a collection includes the path and the value.",
+			ref : "Removal",
+			x : 100,
+			y : 200,
+			width : 900,
+			height : 100
+		},  {
+			type : "graph.Instruction",
+			text : "The addition of an element from a collection includes the path and the value.",
+			ref : "Addition",
+			x : 100,
+			y : 200,
+			width : 900,
+			height : 100
+		}, {
+			type : "graph.Instruction",
+			text : "Rearrangement of elements in a map or ordered collection.",
+			ref : "Rearrangement",
+			x : 100,
+			y : 200,
+			width : 900,
+			height : 100
+		}, {
+			type : "graph.Instruction",
+			text : "The identity is important",
+			ref : "Rearrangement",
+			x : 100,
+			y : 200,
+			width : 900,
+			height : 100
+		}, {
+			type : "graph.Instruction",
+			text : "Either use IdentityService or simply restrict the comparison to the id attribute.",
+			ref : "Rearrangement",
+			x : 100,
+			y : 200,
+			width : 900,
+			height : 100
+		} ]
+	}
+}, {
+	type : "graph.GraphPage",
+	graph : "transformation.json",
+	matrix : 1.34,
+	subChain : {
+		type : "graph.InstructionsChain",
+		views : [ {
+			type : "graph.Instruction",
+			text : "transform Pet into Petlover. PetLove is made available as JSON.",
+			x : 50,
+			y : 300,
+			height : 100,
+			width : 700
+		},{
+			type : "graph.Instruction",
+			text : "Binding solution",
+			x : 50,
+			y : 300,
+			height : 100,
+			width : 700
+		},{
+			type : "graph.Instruction",
+			text : "Create class for PetLover",
+			x : 50,
+			y : 300,
+			height : 100,
+			width : 700
+		},{
+			type : "graph.Instruction",
+			text : "Create Bidi transformation code",
+			x : 50,
+			y : 300,
+			height : 100,
+			width : 700
+		},{
+			type : "graph.Instruction",
+			text : "Alternative: Transformation and dynamic types",
+			x : 50,
+			y : 300,
+			height : 100,
+			width : 700
+		},{
+			type : "graph.Instruction",
+			text : "No new classes, mostly declarative transformations, schema is available",
+			x : 50,
+			y : 300,
+			height : 100,
+			width : 700
+		}]}
+},{
 	type : "graph.GraphPage",
 	graph : "clone.json",
 	matrix : 1.23

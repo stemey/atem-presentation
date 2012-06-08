@@ -12,55 +12,6 @@
 	snippet : "requirements.html"
 }, {
 	type : "graph.GraphPage",
-	graph : "transformation.json",
-	matrix : 1.34,
-	subChain : {
-		type : "graph.InstructionsChain",
-		views : [ {
-			type : "graph.Instruction",
-			text : "transform Pet into Petlover. PetLove is made available as JSON.",
-			x : 50,
-			y : 300,
-			height : 100,
-			width : 700
-		},{
-			type : "graph.Instruction",
-			text : "Binding solution",
-			x : 50,
-			y : 300,
-			height : 100,
-			width : 700
-		},{
-			type : "graph.Instruction",
-			text : "Create class for PetLover",
-			x : 50,
-			y : 300,
-			height : 100,
-			width : 700
-		},{
-			type : "graph.Instruction",
-			text : "Create Bidi transformation code",
-			x : 50,
-			y : 300,
-			height : 100,
-			width : 700
-		},{
-			type : "graph.Instruction",
-			text : "Alternative: Transformation and dynamic types",
-			x : 50,
-			y : 300,
-			height : 100,
-			width : 700
-		},{
-			type : "graph.Instruction",
-			text : "No new classes, mostly declarative transformations, schema is available",
-			x : 50,
-			y : 300,
-			height : 100,
-			width : 700
-		}]}
-}, {
-	type : "graph.GraphPage",
 	graph : "compare.json",
 	matrix : 1.34,
 	subChain : {
@@ -245,6 +196,55 @@ subChain : {
 			height : 100
 		} ]
 	}
+}, {
+	type : "graph.GraphPage",
+	graph : "transformation.json",
+	matrix : 1.34,
+	subChain : {
+		type : "graph.InstructionsChain",
+		views : [ {
+			type : "graph.Instruction",
+			text : "transform Pet into Petlover. PetLove is made available as JSON.",
+			x : 50,
+			y : 300,
+			height : 100,
+			width : 700
+		},{
+			type : "graph.Instruction",
+			text : "Binding solution",
+			x : 50,
+			y : 300,
+			height : 100,
+			width : 700
+		},{
+			type : "graph.Instruction",
+			text : "Create class for PetLover",
+			x : 50,
+			y : 300,
+			height : 100,
+			width : 700
+		},{
+			type : "graph.Instruction",
+			text : "Create Bidi transformation code",
+			x : 50,
+			y : 300,
+			height : 100,
+			width : 700
+		},{
+			type : "graph.Instruction",
+			text : "Alternative: Transformation and dynamic types",
+			x : 50,
+			y : 300,
+			height : 100,
+			width : 700
+		},{
+			type : "graph.Instruction",
+			text : "No new classes, mostly declarative transformations, schema is available",
+			x : 50,
+			y : 300,
+			height : 100,
+			width : 700
+		}]}
 },{
 	type : "graph.GraphPage",
 	graph : "clone.json",
