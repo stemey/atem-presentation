@@ -20,18 +20,23 @@ ratio=fill;
         Type [
                 label = "{Type\l| + getJavaType() : Class\l}",id=Type
         ]
+       PrimitiveType [
+                label = "{PrimitiveType\l| + getJavaType() : Class\l}",id=PrimitiveType
+        ]
         EntityTypeRepository [
                 label = "{EntityTypeRepository\l}",id=EntityTypeRepository
             ]
         Attribute [
                 label = "{Attribute\l|+ code : string\l|+ setValue(entity,value)\l|+ getValue(entity) : Object\l}",id=Attribute
             ]
- 	MapAttribute [ label="{MapAttribute\l| + putElement(entity, key, value) : void\l| + getElement(entity, key) : Object\l| + getSize(entity) : int\l}"]
- 	CollectionAttribute [ label="{CollectionAttribute\l| + addElement(entity, value) : void\l| + getSize(entity) : int\l}"]
+ 	MapAttribute [ label="{MapAttribute\l| + putElement(entity, key, value) : void\l| + getElement(entity, key) : Object\l| + getSize(entity) : int\l}"],id=MapAttribute
+ 	CollectionAttribute [ label="{CollectionAttribute\l| + addElement(entity, value) : void\l| + getSize(entity) : int\l}"],id=CollectionAttribute
 	    
 
 		EntityTypeRepository -> EntityType [label="getEntityType(String code)"];
 		EntityType -> Type [weight=0];
+		PrimitiveType
+ -> Type [weight=0];
 		EntityType -> EntityType [constraint=false,label="superType/\nsubTypes"];
 		EntityType -> Attribute [label="0..n",decorate];
 		Attribute -> Type [label="targetType",decorate,labeldistance=2,labelangle=1.2];

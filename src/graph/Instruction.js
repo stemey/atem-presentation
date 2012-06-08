@@ -92,6 +92,10 @@ function(lang, declare, array, config) {
 						style : "solid",
 						width : 3
 					});
+					//does not seem to work
+					line.moveToBack();
+					line.moveToBack();
+					line.moveToBack();
 					this.edges = [];
 					if (this.refAttributes != null) {
 						var index = 0;
