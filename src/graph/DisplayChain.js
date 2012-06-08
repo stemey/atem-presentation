@@ -55,14 +55,11 @@ function(declare, pagesAsJson, fx, coreFx, dom, lang, connect, hash, ioQuery) {
 				return true;
 			}
 			if (this.views.length > this.viewIndex + 1) {
-				var navState = ioQuery.queryToObject(hash());
+				var navState = ioQuery.queryToObject(this.originalState);
 				navState[this.navStateId] = this.viewIndex+1;
 				hash(ioQuery.objectToQuery(navState));
 				return true;
 			} else {
-				var navState = ioQuery.queryToObject(hash());
-				delete navState[this.navStateId];
-				hash(ioQuery.objectToQuery(navState));
 				return false;
 			}
 		},
@@ -71,6 +68,7 @@ function(declare, pagesAsJson, fx, coreFx, dom, lang, connect, hash, ioQuery) {
 			this.oldView = this.currentView;
 			this.currentView = this.createView(viewDef);
 			this.currentView.display(this.nextHolder, dojo.hitch(this, "onShowView"));
+			this.originalState = hash();
 		},
 		onShowView : function() {
 			var f1 = fx.fadeIn({

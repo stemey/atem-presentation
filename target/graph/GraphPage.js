@@ -42,6 +42,9 @@ function(declare, lang, array, query, config) {
 			// Write JSON to group
 			var group = canvas.createGroup();
 			graph.dot.fromJson(group, graphAsJson);
+			var bgPolyline=group.children[0].children[0];
+			bgPolyline.setFill(null);
+			bgPolyline.setStroke(null);
 			if (this.matrix != null) {
 				var transform = new dojox.gfx.Matrix2D(this.matrix);
 				group.applyTransform(transform);
