@@ -2,19 +2,18 @@ define([ 'dojo/_base/lang',//
 "dojo/_base/declare",//
 "dojo/_base/array",//
 "graph/Config",//
-"dojo/dom-construct",//
+"dojo/dom-class",//
 'dojox/gfx',//
 'graph/dot',//
-'dojo/dom',//
 "dojo/text!graph/pages/welcome.html",//
 "dojo/_base/fx",//
 "dojo/text",//
 'dojox/gfx/utils' ], //
-function(lang, declare, array, config) {
+function(lang, declare, array, config,domClass) {
 
 	declare("graph.Instruction", null, {
 		styleClass : "instruction",
-		margin : 50,
+		margin : 40,
 		x : 50,
 		y : 50,
 		height : 100,
@@ -33,17 +32,17 @@ function(lang, declare, array, config) {
 			this.attributes = null;
 		},
 		highlightAttribute : function(attribute) {
-			attribute.node.rawNode.classList.add("highlightAttribute");
+			attribute.node.rawNode.setAttribute("class","highlightAttribute");
 		},
 		dehighlightAttribute : function(attribute) {
-			attribute.node.rawNode.classList.remove("highlightAttribute");
+			attribute.node.rawNode.setAttribute("class","");
 		},
 		display : function(holder, cb) {
 			this.holder = holder;
 			var dialog = holder.createGroup();
 			var transform = dojox.gfx.matrix.translate(this.x, this.y);
 			dialog.applyTransform(transform);
-			dialog.rawNode.classList.add(this.styleClass);
+			dialog.rawNode.setAttribute("class",this.styleClass);
 
 			
 			var text = dialog.createText({
@@ -162,7 +161,7 @@ function(lang, declare, array, config) {
 						style : "solid",
 						width : 3
 					});
-					line.rawNode.classList.add("instruction");
+					line.rawNode.setAttribute("class","instruction");
 					//does not seem to work
 					line.moveToBack();
 					line.moveToBack();

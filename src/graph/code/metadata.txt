@@ -1,0 +1,25 @@
+// get the type that should hold the meta data.
+// meta data should be attached to attributes!
+EntityType<Attribute> holderType = entityTypeRepository.getEntityType(Attribute.class);
+
+// get the type of the metadata
+EntityType<Like> metaDataType = entityTypeRepository.getEntityType(Like.class);
+
+// create a metaAttribute that can be used to set and get the metadata on the attribute
+// let us store the meta data in memory
+SingleMetaAttribute<MetaDataExample> addMetaAttribute =
+	inMemoryMetaAttributeService.addSingleMetaAttribute("myMetaData", holderType, metaDataType);
+	
+	
+// get a holder instance
+EntityType<Person> entityType = entityTypeRepository.getEntityType(Person.class);
+Attribute attribute = entityType.getAttribute("name");
+Like like = new Like();
+// attach the Like to the 
+addMetaAttribute.setValue(attribute, like);
+
+
+
+
+
+ 

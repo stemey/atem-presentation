@@ -1,7 +1,20 @@
 <html>
 <head>
 <link href="simyo.css" type="text/css" rel="stylesheet" />
-<script src="../dojo/dojo/dojo.js"
+<!-- Include required JS files -->
+<script type="text/javascript" src="/app/syntax/js/shCore.js"></script>
+ 
+<!--
+    At least one brush, here we choose JS. You need to include a brush for every 
+    language you want to highlight
+-->
+<script type="text/javascript" src="/app/syntax/js/shBrushJava.js"></script>
+ 
+<!-- Include *at least* the core style and default theme -->
+<link href="/app/syntax/css/shCore.css" rel="stylesheet" type="text/css" />
+<link href="/app/syntax/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+ <script src="../dojo/dojo/dojo.js"
 	data-dojo-config="async: true,isDebug:true,packages:[{name:'graph',location:'../../app/graph'}]"></script>
 <script type="text/javascript">
 	require([ "graph/PageViewer","dojo/dom",
@@ -23,8 +36,8 @@
 </head>
 <body>
 	<div id="main" style="position: absolute">
-		<div id="page1" style="position: absolute" class="frame lightbg"></div>
-		<div id="page2" style="position: absolute" class="frame lightbg"></div>
+		<div id="page1" style="position: absolute"></div>
+		<div id="page2" style="position: absolute"></div>
 	</div>
 </body>
 </html>

@@ -3,6 +3,7 @@ define([ "dojo/_base/declare",//
 "dojo/_base/array",//
 'dojo/query',//
 './Config',//
+"dojo/dom-class",//
 'dojox/gfx',//
 'graph/dot',//
 "dojo/_base/fx",//
@@ -11,7 +12,7 @@ define([ "dojo/_base/declare",//
 "./Instruction",//
 "dojo/dom-construct",//
 'dojox/gfx/utils' ], //
-function(declare, lang, array, query, config) {
+function(declare, lang, array, query, config,domClass) {
 
 	declare("graph.GraphPage", null, {
 		graph : null,
@@ -30,6 +31,7 @@ function(declare, lang, array, query, config) {
 		display : function(holder, cb) {
 			this.holder=holder;
 			holder.style.opacity = 0;
+			domClass.add(holder,"graph");
 			var graphAsJson = dojo.cache("graph.pages", this.graph);
 			// somehow the scaling affets also the svg canvas size.
 			var surface = dojox.gfx.createSurface(holder, 2000,2000);
@@ -63,6 +65,7 @@ function(declare, lang, array, query, config) {
 		dispose : function() {
 			this.holder.innerHTML="";
 			this.holder=null;
+			domClass.remove(this.holder,"graph");
 		}
 	});
 });

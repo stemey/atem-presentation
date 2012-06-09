@@ -1,0 +1,12 @@
+
+EntityType<Person> entityType = entityTypeRepository.getEntityType(Person.class);
+
+// get the identityService for the type. Can be null.
+IdentityService identityService=entityType.getService(IdentityService.class);	
+
+// get the id of an entity.
+Serializable id=identityService.getId(entityType,person);
+
+
+
+ 

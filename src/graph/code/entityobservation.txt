@@ -1,0 +1,14 @@
+// create an observer based on a comparison
+EntityObserver entityObserver = entityObserverFactory.create(comparison);
+// define the instance to observe
+Person person = new Person();
+entityObserver.setEntity(person);
+// register a listener
+WatchHandle watchHandle = entityObserver.watch("age", attributeListener);
+
+// check the state initially
+entityObserver.check();
+// modifx the person
+person.setAge(100);
+// checking agin will fire the change events
+entityObserver.check();
