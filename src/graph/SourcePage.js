@@ -30,6 +30,14 @@ function(lang, declare, query) {
 					query(".number"+this.currentLineNumber,this.holder).removeClass("highlighted");
 				}
 				this.currentLineNumber++;
+				var nextLine=query(".number"+this.currentLineNumber,this.holder);
+				while (query("code",nextLine[1]).length==0 || query("code.comments",nextLine[1]).length>0) {
+					if (this.currentLineNumber==this.lineCount) {
+						return false;
+					}
+					this.currentLineNumber++;
+					nextLine=query(".number"+this.currentLineNumber,this.holder);
+				}
 				query(".number"+this.currentLineNumber,this.holder).addClass("highlighted");
 				return true;
 			}else{

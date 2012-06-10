@@ -9,12 +9,12 @@ EntityType<Like> metaDataType = entityTypeRepository.getEntityType(Like.class);
 // let us store the meta data in memory
 SingleMetaAttribute<MetaDataExample> addMetaAttribute =
 	inMemoryMetaAttributeService.addSingleMetaAttribute("myMetaData", holderType, metaDataType);
-	
-	
+
+
 // get a holder instance
 EntityType<Person> entityType = entityTypeRepository.getEntityType(Person.class);
 Attribute attribute = entityType.getAttribute("name");
-Like like = new Like();
+Like like = new Like("a lot");
 // attach the Like to the 
 addMetaAttribute.setValue(attribute, like);
 

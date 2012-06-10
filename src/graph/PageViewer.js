@@ -17,6 +17,7 @@ function(declare, DisplayChain, pagesAsJson, fx, coreFx, dom, lang, connect, has
 	declare("graph.PageViewer", DisplayChain, {
 		constructor : function(/* Object */kwArgs) {
 			lang.mixin(this, kwArgs);
+			this.displayInitially=true;
 		},
 		start : function(holder) {
 			this.views = dojo.fromJson(pagesAsJson);

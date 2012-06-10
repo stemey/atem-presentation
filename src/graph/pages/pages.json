@@ -30,6 +30,15 @@
 			height : 100,
 			width : 700,
 			refAttributes : [ 2,3 ]
+		},{
+			type : "graph.Instruction",
+			text : "Date should be handled as a primitive",
+			ref : "Person",
+			x : 50,
+			y : 300,
+			height : 100,
+			width : 800,
+			refAttributes : [ 2,3 ]
 		}, {
 			type : "graph.Instruction",
 			text : "include and cascade association",
@@ -42,6 +51,14 @@
 		}, {
 			type : "graph.Instruction",
 			text : "include collection attribute",
+			ref : "Pet",
+			x : 20,
+			y : 250,
+			width : 600,
+			height : 100
+		}, {
+			type : "graph.Instruction",
+			text : "validate attributes!",
 			ref : "Pet",
 			x : 20,
 			y : 250,
@@ -130,12 +147,19 @@
 	snippet : "services.txt"
 }, {
 	type : "graph.SourcePage",
-	title:"MetaData",
+	title:"Java metadata",
+	snippet : "javametadata.txt"
+}, {
+	type : "graph.SourcePage",
+	title:"Atem Metadata",
 	snippet : "metadata.txt"
 }, {
 	type : "graph.AgendaPage",
 	snippet:"agenda.html",
 	index : 3
+}, {
+	type : "graph.HtmlPage",
+	snippet : "comparison.html"
 }, {
 	type : "graph.GraphPage",
 	graph : "comparison.json",
@@ -213,10 +237,9 @@
 	title:"Comparison",
 	snippet : "comparison.txt"
 }, {
-	type : "graph.AgendaPage",
-	snippet:"agenda.html",
-	index : 4
-} , {
+	type : "graph.HtmlPage",
+	snippet : "transformation.html"
+}, {
 	type : "graph.GraphPage",
 	graph : "transformation.json",
 	matrix : 1.34,
@@ -231,46 +254,25 @@
 			width : 1000
 		}, {
 			type : "graph.Instruction",
-			text : " PetLover is made available as JSON.",
+			text : "copy name",
 			x : 100,
 			y : 300,
 			height : 100,
 			width : 800
 		},{
 			type : "graph.Instruction",
-			text : "Binding solution requires:",
+			text : "copy insurance.price to insurancePrice",
 			x : 100,
 			y : 300,
 			height : 100,
 			width : 700
 		},{
 			type : "graph.Instruction",
-			text : "Create class for PetLover",
+			text : "calculate petCount",
 			x : 100,
 			y : 300,
 			height : 100,
 			width : 800
-		},{
-			type : "graph.Instruction",
-			text : "Create Bidi transformation code",
-			x : 10,
-			y : 300,
-			height : 100,
-			width : 800
-		},{
-			type : "graph.Instruction",
-			text : "Alternative: Transformation and dynamic types",
-			x : 100,
-			y : 300,
-			height : 100,
-			width : 800
-		},{
-			type : "graph.Instruction",
-			text : "No new classes, mostly declarative transformations, schema is available",
-			x : 50,
-			y : 300,
-			height : 100,
-			width : 1100
 		}]}
 }, {
 	type : "graph.SourcePage",
@@ -280,4 +282,11 @@
 	type : "graph.SourcePage",
 	title:"Applying a transformation",
 	snippet : "apply-transformation.txt"
+}, {
+	type : "graph.AgendaPage",
+	snippet:"agenda.html",
+	index : 4
+}, {
+	type : "graph.HtmlPage",
+	snippet : "applications.html"
 } ]

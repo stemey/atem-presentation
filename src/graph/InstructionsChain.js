@@ -21,7 +21,7 @@ function(declare, DisplayChain, pagesAsJson, fx, coreFx, dom, lang, connect, has
 		},
 		onShowView : function() {
 			this.swapViews();
-		},
+		}
 
 	});
 	return graph.PageViewer;

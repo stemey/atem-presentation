@@ -1,0 +1,11 @@
+class Person {
+
+	@Like("a lot")// metadata
+	private String name; // holder of the metadata
+
+}
+
+
+
+
+ 

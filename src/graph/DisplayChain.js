@@ -18,6 +18,7 @@ function(declare, pagesAsJson, fx, coreFx, dom, lang, connect, hash, ioQuery) {
 		oldView : null,
 		viewIndex : -1,
 		navStateId : null,
+		displayInitially:false,
 		constructor : function(/* Object */kwArgs) {
 			lang.mixin(this, kwArgs);
 		},
@@ -32,6 +33,12 @@ function(declare, pagesAsJson, fx, coreFx, dom, lang, connect, hash, ioQuery) {
 			var navState = ioQuery.queryToObject(hash());
 			var newViewIndex = navState[this.navStateId];
 			if (newViewIndex == "" || newViewIndex == null) {
+				if (!this.displayInitially) {
+					this.oldView=this.currentView;
+					this.currentView=null;
+					this.onShowView();
+					return;
+				}
 				newIndex = 0;
 			} else {
 				try {
@@ -51,8 +58,12 @@ function(declare, pagesAsJson, fx, coreFx, dom, lang, connect, hash, ioQuery) {
 		},
 		next : function() {
 			// maybe the current view has subviews to display first
-			if (this.currentView.next && this.currentView.next()) {
+			if (this.currentView!=null && this.currentView.next && this.currentView.next()) {
 				return true;
+			}
+			if (this.currentView==null) {
+				this.originalState = hash();
+				this.viewIndex=-1;
 			}
 			if (this.views.length > this.viewIndex + 1) {
 				var navState = ioQuery.queryToObject(this.originalState);
@@ -64,11 +75,13 @@ function(declare, pagesAsJson, fx, coreFx, dom, lang, connect, hash, ioQuery) {
 			}
 		},
 		showView : function() {
+			if (this.originalState==null) {			
+				this.originalState = hash();
+			}
 			var viewDef = this.views[this.viewIndex];
 			this.oldView = this.currentView;
 			this.currentView = this.createView(viewDef);
 			this.currentView.display(this.nextHolder, dojo.hitch(this, "onShowView"));
-			this.originalState = hash();
 		},
 		onShowView : function() {
 			var f1 = fx.fadeIn({
