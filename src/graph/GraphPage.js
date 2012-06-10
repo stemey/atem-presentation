@@ -65,7 +65,9 @@ function(declare, lang, array, query, config,domClass) {
 		dispose : function() {
 			this.holder.innerHTML="";
 			this.holder=null;
-			domClass.remove(this.holder,"graph");
+			if (this.holder!=null) {
+				domClass.remove(this.holder,"graph");
+			}
 		}
 	});
 });

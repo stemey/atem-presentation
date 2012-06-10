@@ -32,7 +32,7 @@
 			refAttributes : [ 2,3 ]
 		},{
 			type : "graph.Instruction",
-			text : "Date should be handled as a primitive",
+			text : "Date should be handled as a primitive type",
 			ref : "Person",
 			x : 50,
 			y : 300,
@@ -101,7 +101,7 @@
 		type : "graph.InstructionsChain",
 		views : [ {
 			type : "graph.Instruction",
-			text : "EntityTypeRepository gives access to types",
+			text : "EntityTypeRepository provides access to types",
 			ref : "EntityTypeRepository",
 			x : 100,
 			y : 200,
@@ -109,7 +109,7 @@
 			width : 1000
 		}, {
 			type : "graph.Instruction",
-			text : "EntityType is anloguous to java.lang.Class",
+			text : "EntityType is analogous to java.lang.Class",
 			ref : "EntityType",
 			x : 100,
 			y : 200,
@@ -117,7 +117,7 @@
 			height : 100
 		}, {
 			type : "graph.Instruction",
-			text : "Known subtypes are accessible",
+			text : "Access to known subtypes",
 			ref : "EntityType",
 			x : 200,
 			y : 200,
@@ -184,7 +184,7 @@
 			width : 1150
 		}, {
 			type : "graph.Instruction",
-			text : "AttributeChanges include old and new value",
+			text : "AttributeChanges include old and new values",
 			ref : "AttributeChange",
 			x : 50,
 			y : 200,
@@ -247,7 +247,7 @@
 		type : "graph.InstructionsChain",
 		views : [ {
 			type : "graph.Instruction",
-			text : "transform Pet into Petlover.",
+			text : "transform Person into Petlover.",
 			x : 50,
 			y : 300,
 			height : 100,
@@ -261,7 +261,7 @@
 			width : 800
 		},{
 			type : "graph.Instruction",
-			text : "copy insurance.price to insurancePrice",
+			text : "copy 'insurance.price' to 'insurancePrice'",
 			x : 100,
 			y : 300,
 			height : 100,

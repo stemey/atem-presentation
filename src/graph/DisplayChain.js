@@ -6,9 +6,10 @@ define([ //
 'dojo/dom',//
 "dojo/_base/lang",//
 "dojo/_base/connect",//
+"./Navigation",//
 "dojo/hash",//
 "dojo/io-query" ], //
-function(declare, pagesAsJson, fx, coreFx, dom, lang, connect, hash, ioQuery) {
+function(declare, pagesAsJson, fx, coreFx, dom, lang, connect, navigation, hash, ioQuery) {
 
 	declare("graph.DisplayChain", null, {
 		currentHolder : null,
@@ -25,13 +26,12 @@ function(declare, pagesAsJson, fx, coreFx, dom, lang, connect, hash, ioQuery) {
 		constructor : function() {
 			dojo.connect(this.currentHolder, "click", lang.hitch(this, "next"));
 			dojo.connect(this.nextHolder, "click", lang.hitch(this, "next"));
-			connect.subscribe("/dojo/hashchange", this, dojo.hitch(this, "displayHashedView"));
+			dojo.subscribe("graph/navigation", this, dojo.hitch(this, "displayHashedView"));
 		},
 		displayHashedView : function() {
 			var newIndex = this.viewIndex;
 			var newHash = hash();
-			var navState = ioQuery.queryToObject(hash());
-			var newViewIndex = navState[this.navStateId];
+			var newViewIndex = navigation.getNav(this.navStateId);
 			if (newViewIndex == "" || newViewIndex == null) {
 				if (!this.displayInitially) {
 					this.oldView=this.currentView;
@@ -62,22 +62,18 @@ function(declare, pagesAsJson, fx, coreFx, dom, lang, connect, hash, ioQuery) {
 				return true;
 			}
 			if (this.currentView==null) {
-				this.originalState = hash();
 				this.viewIndex=-1;
 			}
 			if (this.views.length > this.viewIndex + 1) {
-				var navState = ioQuery.queryToObject(this.originalState);
-				navState[this.navStateId] = this.viewIndex+1;
-				hash(ioQuery.objectToQuery(navState));
+				navigation.setNav(this.navStateId,this.viewIndex+1);
+				navigation.navigate();
 				return true;
 			} else {
+				navigation.removeNav(this.navStateId);
 				return false;
 			}
 		},
 		showView : function() {
-			if (this.originalState==null) {			
-				this.originalState = hash();
-			}
 			var viewDef = this.views[this.viewIndex];
 			this.oldView = this.currentView;
 			this.currentView = this.createView(viewDef);
