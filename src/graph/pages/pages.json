@@ -25,43 +25,43 @@
 			type : "graph.Instruction",
 			text : "include primitive attributes",
 			ref : "Person",
-			x : 50,
+			x : 100,
 			y : 300,
 			height : 100,
-			width : 700,
+			width : 800,
 			refAttributes : [ 2,3 ]
 		},{
 			type : "graph.Instruction",
 			text : "Date should be handled as a primitive type",
 			ref : "Person",
-			x : 50,
+			x : 0,
 			y : 300,
 			height : 100,
-			width : 800,
-			refAttributes : [ 2,3 ]
+			width : 1100,
+			refAttributes : [ 3 ]
 		}, {
 			type : "graph.Instruction",
 			text : "include and cascade association",
 			ref : "Insurance",
 			refAttributes:[2,3],
-			x : 400,
-			y : 250,
-			width : 700,
+			x : 100,
+			y : 500,
+			width : 850,
 			height : 100
 		}, {
 			type : "graph.Instruction",
 			text : "include collection attribute",
 			ref : "Pet",
-			x : 20,
-			y : 250,
-			width : 600,
+			x : 150,
+			y : 500,
+			width : 750,
 			height : 100
 		}, {
 			type : "graph.Instruction",
 			text : "validate attributes!",
 			ref : "Pet",
-			x : 20,
-			y : 250,
+			x : 200,
+			y : 500,
 			width : 600,
 			height : 100
 		}, {
@@ -69,17 +69,17 @@
 			text : "include attribute in subtype",
 			ref : "Dog",
 			refAttributes : [ 1 ],
-			x : 50,
+			x : 100,
 			y : 250,
-			width : 600,
+			width : 800,
 			height : 100
 		}, {
 			type : "graph.Instruction",
 			text : "Identity of entities important",
 			ref : "Pet",
-			x : 100,
+			x : 150,
 			y : 400,
-			width : 700,
+			width : 800,
 			height : 100
 		} ]
 	}
@@ -96,7 +96,7 @@
 } , {
 	type : "graph.GraphPage",
 	graph : "api.json",
-	matrix : 1.1,
+	matrix : 1.0,
 	subChain : {
 		type : "graph.InstructionsChain",
 		views : [ {
@@ -107,6 +107,14 @@
 			y : 200,
 			height : 100,
 			width : 1000
+		}, {
+			type : "graph.Instruction",
+			text : "Types are PrimitiveType and EntityType",
+			ref : "Type",
+			x : 100,
+			y : 200,
+			width : 1000,
+			height : 100
 		}, {
 			type : "graph.Instruction",
 			text : "EntityType is analogous to java.lang.Class",
