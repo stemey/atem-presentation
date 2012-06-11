@@ -1,16 +1,17 @@
 digraph G {
 	rankdir=BT;
         fontname = "Bitstream Vera Sans";
-        fontsize = 8;
+       
 size="11,7";
 ratio=fill;
 
         node [
-                shape = "record"
+                shape = "record";
+ fontsize = 22	;
         ]
 
         edge [
-        ]
+         fontsize = 16	;]
 
         Person [
                 label = "{Person\l|+ id : string\l|+ name : string\l|+ birthdate : Date\l}",id=Person

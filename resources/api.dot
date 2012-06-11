@@ -1,7 +1,6 @@
 digraph G {
 	rankdir=BT;
         fontname = "Bitstream Vera Sans";
-        fontsize = 8;
 splines=true;
 nodesep=1.3;
 size="11,7";
@@ -9,6 +8,7 @@ ratio=fill;
 
         node [
                 shape = "record"
+        fontsize = 16;
         ]
 
         edge [
