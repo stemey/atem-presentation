@@ -22,8 +22,20 @@ function(declare, DisplayChain, pagesAsJson, fx, coreFx, dom, lang, connect, has
 		start : function(holder) {
 			this.views = dojo.fromJson(pagesAsJson);
 			this.displayHashedView();
-			dojo.connect(this.currentHolder,"click",lang.hitch(this,"next"));
-			dojo.connect(this.nextHolder,"click",lang.hitch(this,"next"));
+			dojo.connect(this.currentHolder, "click", lang.hitch(this, "next"));
+			dojo.connect(this.nextHolder, "click", lang.hitch(this, "next"));
+			dojo.connect(document, "keydown", lang.hitch(this, "onArrow"));
+		},
+		onArrow : function(event) {
+			event.stopPropagation();
+			event.preventDefault;
+			console.log("event "+event.keyCode);	
+			if (event.keyCode == dojo.keys.LEFT_ARROW) {
+				this.previous();
+			} else if (event.keyCode == dojo.keys.RIGHT_ARROW) {
+				this.next();
+			}
+			return null;
 		}
 	});
 	return graph.PageViewer;

@@ -72,6 +72,23 @@ function(declare, pagesAsJson, fx, coreFx, dom, lang, connect, navigation, hash,
 				navigation.removeNav(this.navStateId);
 				return false;
 			}
+		},		previous : function() {
+			// maybe the current view has subviews to display first
+			if (this.currentView != null && this.currentView.previous && this.currentView.previous()) {
+				return true;
+			}
+			if (this.currentView == null) {
+				this.viewIndex = -1;
+			}
+			if (this.viewIndex - 1 >= 0) {
+				navigation.setNav(this.navStateId, this.viewIndex - 1);
+				navigation.navigate();
+				return true;
+			} else {
+				console.log("remove nav "+this.navStateId);	
+				navigation.removeNav(this.navStateId);
+				return false;
+			}
 		},
 		showView : function() {
 			var viewDef = this.views[this.viewIndex];
