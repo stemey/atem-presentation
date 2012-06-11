@@ -18,13 +18,12 @@ function(lang, declare, query, domClass) {
 		index : 0,
 		snippet : null,
 		display : function(holder, callback) {
-			holder.style.opacity = 0;
 			this.holder = holder;
 			var htmlAsText = dojo.cache("graph.pages", this.snippet);
 			holder.innerHTML = htmlAsText;
+			console.log("agenda " + this.index + " " + holder.id)
 			if (this.index > 0) {
-				domClass.add(query(".agendaPoints h1")[this.index - 1],
-						"currentAgendaPoint");
+				domClass.add(query(".agendaPoints h1",holder)[this.index - 1], "currentAgendaPoint");
 			}
 			callback();
 		},

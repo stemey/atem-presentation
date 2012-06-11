@@ -1,6 +1,6 @@
 define([ //
 "dojo/_base/declare",//
-"dojo/text!graph/pages/pages.json",//
+"dojo/text!graph/config/pages.json",//
 "dojo/_base/fx",//
 "dojo/fx",//
 'dojo/dom',//
@@ -18,6 +18,7 @@ function(declare, pagesAsJson, fx, coreFx, dom, lang, connect, navigation, hash,
 		currentView : null,
 		oldView : null,
 		viewIndex : -1,
+		busy:false,
 		navStateId : null,
 		displayInitially:false,
 		constructor : function(/* Object */kwArgs) {
@@ -57,6 +58,9 @@ function(declare, pagesAsJson, fx, coreFx, dom, lang, connect, navigation, hash,
 			return new type(viewDef);
 		},
 		next : function() {
+			if (this.busy) {
+				return;
+			}
 			// maybe the current view has subviews to display first
 			if (this.currentView!=null && this.currentView.next && this.currentView.next()) {
 				return true;
@@ -74,6 +78,9 @@ function(declare, pagesAsJson, fx, coreFx, dom, lang, connect, navigation, hash,
 			}
 		},		previous : function() {
 			// maybe the current view has subviews to display first
+			if (this.busy) {
+				return;
+			}
 			if (this.currentView != null && this.currentView.previous && this.currentView.previous()) {
 				return true;
 			}
@@ -105,13 +112,17 @@ function(declare, pagesAsJson, fx, coreFx, dom, lang, connect, navigation, hash,
 			});
 			var anim = coreFx.combine([ f1, f2 ]);
 			dojo.connect(anim, "onEnd", dojo.hitch(this, "onAnimationEnd"));
+			this.busy=true;
 			anim.play();
 		},
 		onAnimationEnd : function() {
 			this.swapViews();
+			this.busy=false;
 
 		},
 		swapViews : function() {
+			console.log("old "+this.currentHolder.id+" "+this.currentHolder.innerHTML);
+			console.log("new "+this.nextHolder.id+" "+this.nextHolder.innerHTML);
 			var tmpHolder = this.currentHolder;
 			this.currentHolder = this.nextHolder;
 			this.nextHolder = tmpHolder;

@@ -1,7 +1,6 @@
 digraph G {
 	rankdir=BT;
         fontname = "Bitstream Vera Sans";
-        fontsize = 8;
 splines=true;
 nodesep=1.0;
 size="11,7";
@@ -9,17 +8,23 @@ ratio=fill;
 
         node [
                 shape = "record"
+        fontsize = 14
         ]
 
-        edge [
-	]
-{ rank=same;
-            Person [
-                label = "{Person\l|+ id : string\l|<namex>+ name : string\l|+ birthdate : Date\l}",id=Person
+{ 
+	rank=same;
+    Person [
+            label = "{Person\l|<pname>+ name : string\l|+ id : string\l|<b>+ birthdate : Date\l}",
+            id=Person
         ];
-	PetLover [label="{PetLover\l|<namex>+ name : string\l|<insurancePrice>+insurancePrice:int|<x>+ petCount : string\l | }",id=PetLover];
+	PetLover [
+			label="{PetLover\l|<c>+ name : string\l|<insurancePrice>+insurancePrice:int\l|+ petCount : string\l}",
+			id=PetLover
+		]
+	Person -> PetLover //="name",constraint=false,dir=both]
 }
 
+	PetLover:insurancePrice -> Insurance:price [constraint=false,dir=both];
 
         Insurance [
                 label = "{Insurance\l|+ name : string\l|+ id : string\l|<price>+ price : string\l}",id=Insurance
@@ -43,7 +48,5 @@ ratio=fill;
 
 
 
-	PetLover:insurancePrice -> Insurance:price [constraint=false,dir=both];
-	PetLover:namex -> Person:namex [constraint=false,dir=both];
 
 }

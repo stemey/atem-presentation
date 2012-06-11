@@ -6,12 +6,12 @@ size="11,7";
 ratio=fill;
 
         node [
-                shape = "record";
- fontsize = 22	;
+                shape = "record"
+			 fontsize = 22	
         ]
 
         edge [
-         fontsize = 16	;]
+         fontsize = 16	]
 
         Person [
                 label = "{Person\l|+ id : string\l|+ name : string\l|+ birthdate : Date\l}",id=Person

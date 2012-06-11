@@ -1,6 +1,6 @@
 define([ 'dojo/_base/lang',//
 "dojo/_base/declare",//
-"dojo/text!graph/pages/config.json",//
+"dojo/text!graph/config/config.json",//
 ], //
 function(lang, declare, configAsJson) {
 

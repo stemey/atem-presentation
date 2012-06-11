@@ -1,7 +1,7 @@
 define([ //
 "dojo/_base/declare",//
 "./DisplayChain",//
-"dojo/text!graph/pages/pages.json",//
+"dojo/text!graph/config/pages.json",//
 "dojo/_base/fx",//
 "dojo/fx",//
 'dojo/dom',//

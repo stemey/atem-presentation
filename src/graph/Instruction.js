@@ -19,22 +19,26 @@ function(lang, declare, array, config,domClass) {
 		height : 100,
 		width : 500,
 		fontSize : 25,
-		attributes : [],
+		attributes : null,
 		font : null,
+		text:"",
 		constructor : function(/* Object */kwArgs) {
 			lang.mixin(this, kwArgs);
+			this.attributes=[];
 		},
 		dispose : function() {
 			this.holder.clear();
 			dojo.forEach(this.attributes, function(e) {
 				this.dehighlightAttribute(e);
 			}, this);
-			this.attributes = null;
+			this.attributes = [];
 		},
 		highlightAttribute : function(attribute) {
+			console.log("highlight for "+this.text);	
 			attribute.node.rawNode.setAttribute("class","highlightAttribute");
 		},
 		dehighlightAttribute : function(attribute) {
+			console.log("dehighlight for "+this.text);	
 			attribute.node.rawNode.setAttribute("class","");
 		},
 		display : function(holder, cb) {

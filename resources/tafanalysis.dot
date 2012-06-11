@@ -1,0 +1,53 @@
+digraph {
+	rankdir=RL;	
+	splines=false;
+size="11,7";
+//ratio=fill;
+	
+	node [shape=record
+	]
+
+	xmlfilereader [
+		label="{{fileReader\l|<line>line:string\l}}",
+		id=fileReader
+	];
+	lineMatcher [
+		label="{{regex\l|<line>line:string\l|start:boolean\l}}",
+		id=lineMatcher
+	];
+	lineMatcher:line -> xmlfilereader:line[dir=back];
+	group [
+		label="{{group\l |<line>line (grouping:append):string\l|<start>start (groupkey):string\l}}",
+		id=group
+	];
+	group:line -> lineMatcher:line[dir=back];
+	group:start -> lineMatcher:start[dir=back];
+	extractLine [
+		label="{{regex\l |<line>line :string\l|<xml>xml:xml\l|<sessionid>sessionid:string\l}}",
+		id=extractLine
+	];
+	extractLine:line -> group:line[dir=back];
+	extractMsisdn [
+		label="{{xpath\l|<line>line :string\l|<xml>xml :xml\l|<sessionid>sessionid\l|<msisdn>msisdn\l}}",
+		id=extractMsisdn
+	];
+	extractMsisdn:line -> extractLine:line[dir=back];
+	extractMsisdn:sessionid -> extractLine:sessionid[dir=back];
+	extractMsisdn:xml -> extractLine:xml[dir=back];
+	filter [
+		label="{{filter\l |<line>line :string\l|<xml>xml :xml\l|<sessionid>sessionid\l|<msisdn>msisdn\l}}",
+		id=filter
+	];
+	filter:sessionid -> extractMsisdn:sessionid [dir=back];
+	filter:msisdn -> extractMsisdn:msisdn [dir=back];
+	filter:line -> extractMsisdn:line [dir=back];
+	filter:xml -> extractMsisdn:xml [dir=back];
+	load [
+		label="{{jdbc \l|<sessionid>sessionid\l|<msisdn>msisdn\l}}",
+		id=load
+	];
+	load:sessionid -> filter:sessionid [dir=back];
+	load:msisdn -> filter:msisdn[dir=back] ;
+
+
+}

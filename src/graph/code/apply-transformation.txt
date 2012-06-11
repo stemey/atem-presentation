@@ -1,10 +1,11 @@
-EntityTypeTransformation<Person, ObjectNode> personLoverTransformation =
-	(EntityTypeTransformation<EntityA, DynamicEntity>) builder.buildTypeTransformation();
 
-// create petLoverfrom Person
+// create PetLover from Person
 ObjectNode petLover=personLoverTransformation.createB(person);
 
-// Merge change dpropeties name and price back to person
+
+
+
+// Merge changed properties name and price back to person
 personLover.transform(existingPerson,petLover);
 
 

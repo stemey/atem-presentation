@@ -16,13 +16,13 @@ function(lang, declare, domContruct) {
 		},
 		snippet : null,
 		display : function(holder,callback) {
-			holder.style.opacity = 0;
 			this.holder=holder;
 			var htmlAsText = dojo.cache("graph.pages", this.snippet);
 			holder.innerHTML = htmlAsText;
 			callback();
 		},
 		dispose:function() {
+			console.log("delete "+this.holder.innerHTML);
 			this.holder.innerHTML="";
 			this.holder=null;
 		}

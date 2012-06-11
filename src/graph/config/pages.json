@@ -247,27 +247,34 @@
 		views : [ {
 			type : "graph.Instruction",
 			text : "transform Person into Petlover.",
-			x : 50,
-			y : 300,
-			height : 100,
-			width : 1000
-		}, {
-			type : "graph.Instruction",
-			text : "copy name",
-			x : 100,
+			ref : "Person",
+			x : 150,
 			y : 300,
 			height : 100,
 			width : 800
+		}, {
+			type : "graph.Instruction",
+			text : "copy name",
+			ref : "Person",
+			refAttributes:[1],
+			x : 400,
+			y : 300,
+			height : 100,
+			width : 300
 		},{
 			type : "graph.Instruction",
 			text : "copy 'insurance.price' to 'insurancePrice'",
+			ref : "Insurance",
+			refAttributes:[3],
 			x : 100,
-			y : 300,
+			y : 100,
 			height : 100,
-			width : 700
+			width : 900
 		},{
 			type : "graph.Instruction",
 			text : "calculate petCount",
+			ref : "PetLover",
+			refAttributes:[3],
 			x : 100,
 			y : 300,
 			height : 100,
@@ -288,6 +295,75 @@
 }, {
 	type : "graph.HtmlPage",
 	snippet : "applications.html"
+}, {
+	type : "graph.GraphPage",
+	graph : "tafanalysis.json",
+	matrix : 1,
+	subChain : {
+		type : "graph.InstructionsChain",
+		views : [ {
+			type : "graph.Instruction",
+			text : "feed lines from file into pipeline",
+			ref : "fileReader",
+			x : 0,
+			y : 500,
+			height : 100,
+			width : 1100
+		},{
+			type : "graph.Instruction",
+			text : "find start lines of messages",
+			ref : "lineMatcher",
+			x : 0,
+			y : 500,
+			height : 100,
+			width : 1100,
+			refAttributes : [ 3 ]
+		}, {
+			type : "graph.Instruction",
+			text : "concat lines of messages",
+			ref : "group",
+			x : 0,
+			y : 500,
+			height : 100,
+			width : 1100,
+			height : 100
+		}, {
+			type : "graph.Instruction",
+			text : "extract xml and sessionid from message",
+			ref : "extractLine",
+			x : 0,
+			y : 500,
+			height : 100,
+			width : 1100,
+			refAttributes : [ 3 ]
+		}, {
+			type : "graph.Instruction",
+			text : "extract msisdn from xml with xpath",
+			ref : "extractMsisdn",
+			x : 0,
+			y : 500,
+			height : 100,
+			width : 1100,
+			refAttributes : [ 4 ]
+		}, {
+			type : "graph.Instruction",
+			text : "filter attributes to be persisted",
+			ref : "filter",
+			refAttributes : [ 3,4 ],
+			x : 0,
+			y : 500,
+			height : 100,
+			width : 1100
+		}, {
+			type : "graph.Instruction",
+			text : "insert data into database by jdbc",
+			ref : "load",
+			x : 0,
+			y : 500,
+			height : 100,
+			width : 1100
+		} ]
+	}
 }, {
 	type : "graph.HtmlPage",
 	snippet:"end.html",
