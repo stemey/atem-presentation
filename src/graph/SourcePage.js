@@ -19,7 +19,7 @@ function(lang, declare, query) {
 			this.holder=holder;
 			var code = dojo.cache("graph.code", this.snippet);
 			//holder.innerHTML = "<pre class='brush :java'>"+code+"</pre>";
-			holder.innerHTML = "<div class='source'><h1>"+this.title+"</h1><script type='syntaxhighlighter' class='brush: java'><![CDATA["+code+"]]></script></div>";
+			holder.innerHTML = "<div class='frame source'><h1>"+this.title+"</h1><script type='syntaxhighlighter' class='brush: java'><![CDATA["+code+"]]></script></div>";
 			SyntaxHighlighter.highlight({toolbar:false,"class-name":"source"},holder);
 			this.lineCount=query("td.code .line",holder).length;
 			callback();

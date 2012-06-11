@@ -34,7 +34,7 @@ function(declare, lang, array, query, config,domClass) {
 			domClass.add(holder,"graph");
 			var graphAsJson = dojo.cache("graph.pages", this.graph);
 			// somehow the scaling affets also the svg canvas size.
-			var surface = dojox.gfx.createSurface(holder, 2000,2000);
+			var surface = dojox.gfx.createSurface(holder, 1200,800);
 			var canvas = surface.createGroup();
 			var marginTransform = new dojox.gfx.matrix.translate({x:config.margin,y:config.margin});
 			var scaleTransform = new dojox.gfx.matrix.scale(config.scale);
@@ -64,10 +64,10 @@ function(declare, lang, array, query, config,domClass) {
 		},
 		dispose : function() {
 			this.holder.innerHTML="";
-			this.holder=null;
 			if (this.holder!=null) {
 				domClass.remove(this.holder,"graph");
 			}
+			this.holder=null;
 		}
 	});
 });

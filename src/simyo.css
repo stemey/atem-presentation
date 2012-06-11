@@ -1,3 +1,14 @@
+* {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
 @font-face {
 font-family: S2;
 src: url('chalet-parisnineteensixty.ttf');
@@ -7,23 +18,26 @@ font-weight: normal;
 
 body {
  position:relative;font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
-	background-color:blue;margin:0
+	background-color:blue;margin:0;
 }
 
 .frame {
-height: 800px;
-width: 1200px;
-/*position: relative;*/
-padding: 0px;
-margin: 0 auto;
+	height: 800px;
+	width: 1200px;
+	/*position: relative;*/
+	padding: 40px;
+	margin: 0 auto;
 }
 
 h1 {
-font-size:50pt;margin:50pt;color:white;font-weight:800
+	font-size: 50pt;
+	margin: 0;
+	color:white;
+	font-weight:800;
 }
 
-li{
- margin:20pt;
+li {
+	margin:20pt;
 }
 
 .lightbg {
@@ -32,14 +46,14 @@ li{
 }
 
 .grey {
-   background-color:rgb(117,117,117)
+   background-color:rgb(117,117,117);
 }
 
 .lightgrey {
-   background-color:rgb(209,209,209)
+   background-color:rgb(209,209,209);
 }
 .darkgrey {
-   background-color:rgb(38,38,38)
+   background-color:rgb(38,38,38);
 }
 
 rect:hover {
@@ -76,15 +90,15 @@ text:hover {
 
 
 div.agendaPoints {
-  color:white;position:absolute;bottom:50px;margin:5px;font-family:S2
+  color:white;position:absolute;bottom:50px;margin:5px;font-family:S2;
 }
 
 .agendaPoints h1 {
-  color:rgb(209,209,209);font-size:43pt;margin-bottom: 10px;margin-top: 10px;font-family:S2
+  color:rgb(209,209,209);font-size:43pt;margin-bottom: 10px;margin-top: 10px;font-family:S2;
 }
 
 h1.currentAgendaPoint {
-   color:white
+   color:white;
 }
 
 
@@ -97,42 +111,42 @@ font-size:43pt;margin-bottom: 10px;
 }
 
 .chalet {
-   font-family:S2
+   font-family:S2;
 }
 
 .bullets {
-font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;font-size:30pt;margin:40pt;font-weight:600;color:white;position:absolute;bottom:50px;
-
+	font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+	font-size: 30pt;
+	margin: 0;
+	font-weight: 600;
+	color: white;
+	position: absolute;
+	bottom: 50px;
 }
 
 #main {
-	width:1200;
-	height:800;
+	width: 1200px;
+	height: 800px;
 	background-color:#757575;
-padding: 0px;
-
+	padding: 0px;
 }
 
 div.graph {
-height: 800px;
-width: 1200px;
-/*position: relative;*/
-padding: 0px;
-margin: 0 auto;
+	height: 800px;
+	width: 1200px;
+	/*position: relative;*/
+	padding: 0px;
+	margin: 0 auto;
 	background-image: -moz-radial-gradient(center 45deg, circle, white 0%, rgb(209,209,209) 100%);
 	background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 750, from(rgb(245,245,245)), to(rgb(209,209,209)));
 }
 
 div.source {
-	margin:50;
-	height: 700px;
-width: 1100px;
-font-size:20px;
-	
+	font-size: 20px;
 }
 div.syntaxHighlighter.source{
-	overflow:hidden;
-	
+	overflow: hidden;
+	margin: 2em 0 1em 0 !important;
 }
 
 
