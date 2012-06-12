@@ -1,10 +1,10 @@
 EntityType<Person> entityType = entityTypeRepository.getEntityType(Person.class);
 // get a comparisonBuilder for Person
 ComparisonBuilder comparisonBuilder = comparisonBuilderFactory.create(entityType);
-comparisonBuilder.include("age");
+comparisonBuilder.include("birthdate");
 
 // define the comparison of the associated type	
-ComparisonBuilder subBuilder = comparisonBuilderAssociative.include("insurance").cascade();
+ComparisonBuilder subBuilder = comparisonBuilder.include("insurance").cascade();
 subBuilder.include("price");
 
 comparison = comparisonBuilder.create();

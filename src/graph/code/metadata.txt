@@ -8,7 +8,7 @@ EntityType<Like> metaDataType = entityTypeRepository.getEntityType(Like.class);
 // create a metaAttribute that can be used to set and get the metadata on the attribute
 // let us store the meta data in memory
 SingleMetaAttribute<MetaDataExample> addMetaAttribute =
-	inMemoryMetaAttributeService.addSingleMetaAttribute("myMetaData", holderType, metaDataType);
+   metaAttributeService.addSingleMetaAttribute("like", holderType, metaDataType);
 
 
 // get a holder instance

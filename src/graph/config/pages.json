@@ -52,6 +52,7 @@
 			type : "graph.Instruction",
 			text : "include collection attribute",
 			ref : "Pet",
+			refAttributes : [1],
 			x : 150,
 			y : 500,
 			width : 750,
@@ -60,6 +61,7 @@
 			type : "graph.Instruction",
 			text : "validate attributes!",
 			ref : "Pet",
+			refAttributes : [1],
 			x : 200,
 			y : 500,
 			width : 600,
@@ -151,7 +153,7 @@
 	}
 }, {
 	type : "graph.SourcePage",
-	title:"Extensibility with Services",
+	title:"Extendibility with Services",
 	snippet : "services.txt"
 }, {
 	type : "graph.SourcePage",
@@ -260,16 +262,16 @@
 			x : 400,
 			y : 300,
 			height : 100,
-			width : 300
+			width : 400
 		},{
 			type : "graph.Instruction",
 			text : "copy 'insurance.price' to 'insurancePrice'",
 			ref : "Insurance",
 			refAttributes:[3],
-			x : 100,
+			x : 0,
 			y : 100,
 			height : 100,
-			width : 900
+			width : 1100
 		},{
 			type : "graph.Instruction",
 			text : "calculate petCount",
@@ -278,7 +280,7 @@
 			x : 100,
 			y : 300,
 			height : 100,
-			width : 800
+			width : 600
 		}]}
 }, {
 	type : "graph.SourcePage",
@@ -288,6 +290,9 @@
 	type : "graph.SourcePage",
 	title:"Applying a transformation",
 	snippet : "apply-transformation.txt"
+}, {
+	type : "graph.HtmlPage",
+	snippet : "more-utilities.html"
 }, {
 	type : "graph.AgendaPage",
 	snippet:"agenda.html",
