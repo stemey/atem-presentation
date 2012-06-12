@@ -1,11 +1,11 @@
 
 // create PetLover from Person
-ObjectNode petLover=personLoverTransformation.getAB().create(person);
+ObjectNode petLover=personLoverTransformation.getAB().convert(person);
 
 
 
 
 // Merge changed properties name and price back to person
-personLoverTransformation.getBA().transform(existingPerson,petLover);
+personLoverTransformation.getBA().merge(petLover,existingPerson);
 
 

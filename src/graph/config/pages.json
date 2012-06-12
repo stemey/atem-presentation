@@ -32,12 +32,12 @@
 			refAttributes : [ 2,3 ]
 		},{
 			type : "graph.Instruction",
-			text : "Date should be handled as a primitive type",
+			text : "Date should be a primitive type",
 			ref : "Person",
-			x : 0,
+			x : 50,
 			y : 300,
 			height : 100,
-			width : 1100,
+			width : 1000,
 			refAttributes : [ 3 ]
 		}, {
 			type : "graph.Instruction",
@@ -46,7 +46,7 @@
 			refAttributes:[2,3],
 			x : 100,
 			y : 500,
-			width : 850,
+			width : 900,
 			height : 100
 		}, {
 			type : "graph.Instruction",
@@ -103,9 +103,9 @@
 		type : "graph.InstructionsChain",
 		views : [ {
 			type : "graph.Instruction",
-			text : "EntityTypeRepository provides access to types",
+			text : "EntityTypeRepository manages types",
 			ref : "EntityTypeRepository",
-			x : 100,
+			x : 50,
 			y : 200,
 			height : 100,
 			width : 1000
@@ -113,17 +113,17 @@
 			type : "graph.Instruction",
 			text : "Types are PrimitiveType and EntityType",
 			ref : "Type",
-			x : 100,
+			x : 0,
 			y : 200,
-			width : 1000,
+			width : 1100,
 			height : 100
 		}, {
 			type : "graph.Instruction",
 			text : "EntityType is analogous to java.lang.Class",
 			ref : "EntityType",
-			x : 100,
+			x : -20,
 			y : 200,
-			width : 1000,
+			width : 1140,
 			height : 100
 		}, {
 			type : "graph.Instruction",
@@ -248,8 +248,16 @@
 		type : "graph.InstructionsChain",
 		views : [ {
 			type : "graph.Instruction",
-			text : "transform Person into Petlover.",
+			text : "transform Person into ...",
 			ref : "Person",
+			x : 150,
+			y : 300,
+			height : 100,
+			width : 800
+		}, {
+			type : "graph.Instruction",
+			text : "... PetLover.",
+			ref : "PetLover",
 			x : 150,
 			y : 300,
 			height : 100,

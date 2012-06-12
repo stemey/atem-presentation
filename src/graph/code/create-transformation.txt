@@ -1,5 +1,5 @@
 TypeTransformationBuilder<Person, ObjectNode> builder = 
-	transformationBuilderFactory.create();
+	(...) transformationBuilderFactory.create();
 builder.setSourceType(Person.class);
 builder.setTargetTypeBuilder(jsonEntityTypeSubrepository.createBuilder("PetLover"));
 builder.transform().from("name").to("name");
@@ -7,7 +7,7 @@ builder.transform().from("insurane.price").to("price");
 builder.transform().from("pets").to("petCount").converter(SizeConverter.class);
 
 
-EntityTypeTransformation<Person, ObjectNode> personLoverTransformation =
-	(...EntityTypeTransformation<EntityA, DynamicEntity>) builder.build();
+Transformation<Person, ObjectNode> personLoverTransformation =
+	(Transformation<Person, ObjectNode>) builder.build();
 
 
